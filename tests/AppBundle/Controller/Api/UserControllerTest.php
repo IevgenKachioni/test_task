@@ -84,7 +84,7 @@ class UserControllerTest extends WebTestCase
         ]);
 
         $this->requestHelper($client)
-            ->put('/users/1/roles', 403)
+            ->put('/users/1/roles')
             ->jsonHelper()
                 ->withBody(['roles' => []])
                 ->executeAndJsonDecode();
