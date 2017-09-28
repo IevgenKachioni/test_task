@@ -35,11 +35,12 @@ class UserControllerTest extends WebTestCase
      */
     public function testGetNoPassword($users)
     {
+
         $this->requestHelper()
             ->get('/users/' . $users[0]['id'])
             ->jsonHelper()
                 ->propertyHelper('password')->setDoesNotExists(true)->end()
-                ->propertyHelper('roles')->assertSame(["ROLE_USER"])->end()
+                ->propertyHelper('roles')->assertSame([])->end()
                 ->executeAndJsonDecode();
     }
 
@@ -51,7 +52,7 @@ class UserControllerTest extends WebTestCase
         $this->requestHelper()
             ->get('/users/' . $users[0]['id'])
             ->jsonHelper()
-                ->propertyHelper('roles')->assertSame(["ROLE_USER"])->end()
+                ->propertyHelper('roles')->assertSame([])->end()
                 ->executeAndJsonDecode();
     }
 

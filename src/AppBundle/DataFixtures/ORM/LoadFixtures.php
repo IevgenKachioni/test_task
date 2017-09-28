@@ -54,6 +54,7 @@ class LoadFixtures extends AbstractFixture implements ContainerAwareInterface
         $johnUser->setEmail('john_user@symfony.com');
         $encodedPassword = $passwordEncoder->encodePassword($johnUser, 'kitten');
         $johnUser->setPassword($encodedPassword);
+        $johnUser->setRoles(['ROLE_USER']);
         $manager->persist($johnUser);
         $this->addReference('john-user', $johnUser);
 
