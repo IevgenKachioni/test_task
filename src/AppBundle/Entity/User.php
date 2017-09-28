@@ -49,7 +49,7 @@ class User implements UserInterface
      *
      * @ORM\Column(type="string")
      */
-    private $password;
+    private $password = null;
 
     /**
      * @var array
